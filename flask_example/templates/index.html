@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example application</title>
+  </head>
+  <body>
+    <center>
+      {% if messages %}
+      <ul>
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+      </ul>
+      {% endif %}
+      {% if current_user %}
+      <h1>Hello, {{ current_user['name'] }}!</h1>
+      <form action="/logout" method="post">
+          <input type="submit" value="Sign Out">
+      </form>
+      {% else %}
+      <form action="/login" method="post">
+          <input type="text" required name="name" value="">
+          <input type="password" required name="email" value="">
+          <input type="submit" value="Sign In">
+      </form>
+      {% endif %}
+      <a href = '{{ url_for('users') }}'>ПОЛЬЗОВАТЕЛИ</a>
+    </center>
+  </body>
+</html>

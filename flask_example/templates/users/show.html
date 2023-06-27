@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example application</title>
+  </head>
+  <body>
+    <div>
+      <a href={{ url_for('users') }}>USERS</a>
+    </div>
+    <div>
+      {{ user['id'] }}: {{ user['name'] }}
+    </div>
+    <div>
+      <a href={{ url_for('edit_user', id=user['id']) }}>Edit user</a>
+    </div>
+    <div>
+      <a href={{ url_for('delete_user', id=user['id']) }}>Delete user</a>
+    </div>
+  </body>
+</html>

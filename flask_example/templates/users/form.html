@@ -1,0 +1,18 @@
+<div>
+    <label>
+      Имя
+      <input type="text" name="name" value="{{ user['name']|e }}">
+    </label>
+    {% if errors['name'] %}
+      <div>{{ errors['name']|e }}</div>
+    {% endif %}
+  </div>
+  <div>
+    <label>
+      Email
+      <input type="email" name="email" value="{{ user['email']|e }}">
+    </label>
+    {% if errors['email'] %}
+      <div>{{ errors['email']|e }}</div>
+    {% endif %}
+  </div>
