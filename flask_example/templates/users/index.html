@@ -5,30 +5,31 @@
   </head>
   <body>
     <center>
-    {% if messages %}
-      <ul class=flashes>
-        {% for category, message in messages %}
-          <li class={{ category }}>{{ message }}</li>
+      {% if messages %}
+        <ul class=flashes>
+          {% for category, message in messages %}
+            <li class={{ category }}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      <form action="{{ url_for('users') }}" method="get">
+          <input type="search" name="term" value="{{ search|e }}" />
+          <input type="submit" value="Search" />
+      </form>
+      <table>
+        {% for user in users %}
+        <tr>
+          <td>
+              {{ user['id'] }}
+          </td>
+          <td>
+              <a href="{{ url_for('get_user', id=user['id']) }}">{{ user['name'] }}</a>
+          </td>
+        </tr>
         {% endfor %}
-      </ul>
-    {% endif %}
-    <form action="{{ url_for('users') }}" method="get">
-        <input type="search" name="term" value="{{ search|e }}" />
-        <input type="submit" value="Search" />
-    </form>
-    <table>
-      {% for user in users %}
-      <tr>
-        <td>
-            {{ user['id'] }}
-        </td>
-        <td>
-            <a href="{{ url_for('get_user', id=user['id']) }}">{{ user['name'] }}</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </table>
-    <a href="{{ url_for('new_user') }}">Регистрация нового пользователя</a>
+      </table>
+      <div><a href="{{ url_for('new_user') }}">Add new user</a></div>
+      <div><a href="{{ url_for('index') }}">MAIN PAGE</a></div>
     </center>
   </body>
 </html>

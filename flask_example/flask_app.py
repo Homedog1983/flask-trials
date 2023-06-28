@@ -65,7 +65,7 @@ def users():
                 errors=errors
             ), 422
         db.create(users, new_user)
-        flash(f'Новый пользователь {new_user["name"]} создан!', 'success')
+        flash(f'New user {new_user["name"]} was created!', 'success')
         response = redirect(url_for('users'))
         response.set_cookie('users', dumps(users))
         return response
@@ -130,6 +130,7 @@ def delete_user(id):
         return render_template(
             'users/delete.html',
             id=id,
+            current_user=session.get('user')
         )
     if request.method == 'POST':
         db.delete(users, int(id))

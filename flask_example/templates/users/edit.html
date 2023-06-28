@@ -1,4 +1,6 @@
-<form action="{{ url_for('edit_user', id=user['id']) }}" method="post">
-    {% include "users/form.html" %}
-    <input type="submit" value="Update">
-</form>
+<center>
+    <form action="{{ url_for('edit_user', id=user['id']) }}" method="post">
+        {% include "users/form.html" %}
+        <input type="submit" value="Update">
+    </form>
+</center>

@@ -1,6 +1,12 @@
 <center>
-    <h2>Вы точно хотите удалить пользователя?</h2>
-    <form action="{{ url_for('delete_user', id=id) }}" method="post">
-    <input type="submit" value="Remove">
-    </form>
+    {% if current_user %}
+        <h2>Are you realy want to delete this user?</h2>
+        <form action="{{ url_for('delete_user', id=id) }}" method="post">
+        <input type="submit" value="Remove">
+        </form>
+    {% else %}
+    <h2>You need to login on main page to delete user</h2>
+    {% endif %}
+    <div><a href="{{ url_for('index') }}">MAIN PAGE</a></div>
+    <div><a href="{{ url_for('users') }}">USERS</a></div>
 </center>

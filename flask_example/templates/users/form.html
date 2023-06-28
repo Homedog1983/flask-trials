@@ -1,6 +1,6 @@
 <div>
     <label>
-      Имя
+      User's name
       <input type="text" name="name" value="{{ user['name']|e }}">
     </label>
     {% if errors['name'] %}
@@ -9,7 +9,7 @@
   </div>
   <div>
     <label>
-      Email
+      User's email
       <input type="email" name="email" value="{{ user['email']|e }}">
     </label>
     {% if errors['email'] %}

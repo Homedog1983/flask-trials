@@ -1,6 +1,3 @@
-# Учебный проект. Вместо реальной БД используются cookie
-
-
 def create(users, new_user):
     new_user['id'] = 1 if len(users) == 0 else users[-1]['id'] + 1
     users.append(new_user)

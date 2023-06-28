@@ -9,7 +9,7 @@
       <ul>
         {% for category, message in messages %}
         <li class="{{ category }}">{{ message }}</li>
-      {% endfor %}
+        {% endfor %}
       </ul>
       {% endif %}
       {% if current_user %}
@@ -24,7 +24,7 @@
           <input type="submit" value="Sign In">
       </form>
       {% endif %}
-      <a href = '{{ url_for('users') }}'>ПОЛЬЗОВАТЕЛИ</a>
+      <a href = '{{ url_for('users') }}'>USERS</a>
     </center>
   </body>
 </html>
