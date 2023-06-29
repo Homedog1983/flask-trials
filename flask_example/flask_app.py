@@ -5,10 +5,16 @@ from flask import (
 import flask_example.db as db
 from flask_example.validator import validate
 from json import loads, dumps
+import os
+from dotenv import load_dotenv
 
 
 app = Flask(__name__)
-app.secret_key = "secret_key"
+
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
+app.secret_key = "secret_key_before_dotenv_setup"
 
 
 @app.route('/')
