@@ -11,10 +11,8 @@ from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
-if os.path.exists(dotenv_path):
-    load_dotenv(dotenv_path)
-app.secret_key = "secret_key_before_dotenv_setup"
+load_dotenv()
+app.secret_key = os.getenv("SECRET_KEY")
 
 
 @app.route('/')
