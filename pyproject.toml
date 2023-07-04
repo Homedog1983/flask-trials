@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "flask-trials"
-version = "0.4.2"
+version = "0.4.3"
 description = "Education project for flask study framework"
 authors = ["Evgeny Sokolov <sokolovsolod@gmail.com>"]
 readme = "README.md"
